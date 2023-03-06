@@ -5,5 +5,6 @@
 ## How to run:
 ### On Eros run this first
 ```python3 Server.py ```
-### Once that is running run this on Zeus
+### Once that is running
+### Run this on Zeus
 ```python3 Client.py ```
