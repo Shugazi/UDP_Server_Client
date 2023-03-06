@@ -4,7 +4,7 @@ from menu import *
 # Creating the sock object
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Getting the Zeus IP
+# Getting the Eros IP
 host = '147.26.231.153'
 
 # connecting to a server on a specifed port
