@@ -61,19 +61,14 @@ def dataHandler(dataJ):
         msg = str(dataDisplayAll)
         clientSock.send(msg.encode())
     if option == 5:
-        with open("data.json","r") as f:
+        with open("data.json", "r") as f:
             dataDelete = json.load(f)
         id = dataJ["ID"]
         for obj in dataDelete:
             if obj.get("id") == id:
                 dataDelete.remove(obj)
-        with open("data.json","w") as f:
-            json.dump(dataDelete,f)
-
-
-
-
-
+        with open("data.json", "w") as f:
+            json.dump(dataDelete, f)
 
 
 while True:

@@ -5,7 +5,7 @@ from menu import *
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Getting the Eros IP
-host = '147.26.231.153'
+host = 'fe80::5054:ff:fe80:1925'
 
 # connecting to a server on a specifed port
 sock.connect((host, 12345))
