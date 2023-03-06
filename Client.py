@@ -4,8 +4,8 @@ from menu import *
 # Creating the sock object
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Getting the local machine name
-host = socket.gethostname()
+# Getting the Zeus IP
+host = '147.26.231.156'
 
 # connecting to a server on a specifed port
 sock.connect((host, 12345))

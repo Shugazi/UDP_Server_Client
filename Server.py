@@ -7,10 +7,9 @@ with open("data.json", "r") as f:
 # creating a socket object
 serverSock = socket.socket()
 
-# getiing local machine name
+# getiing the Eros IP
 
-host = socket.gethostname()
-
+host = socket.gethostbyname(socket.gethostname())
 
 # binding the socket to a public host and port
 serverSock.bind((host, 12345))
