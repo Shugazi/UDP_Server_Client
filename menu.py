@@ -11,7 +11,7 @@ def add():
     data = {"Option": 1, "id": ID, "name": fName, "last_name": lName, "score": score}
 
     json_data = json.dumps(data)  # creating json object
-
+    print("Successfully Added")
     return json_data
 
 
@@ -19,7 +19,7 @@ def display():
     ID = input("\nPlease input ID: ")
     # missing server logic
     print(f"\nStudent {ID} Info:")
-    data = {"Option": 2,"ID": ID}
+    data = {"Option": 2, "ID": ID}
 
     json_data = json.dumps(data)  # creating json object
 
@@ -29,7 +29,7 @@ def display():
 def display_score():
     score = input("\nPlease input Score: ")
     print(f"\nAll of the students with score: {score}")
-    data = {"Option": 3,"score": score}
+    data = {"Option": 3, "score": score}
 
     json_data = json.dumps(data)  # creating json object
 
@@ -50,10 +50,12 @@ def deleteID():
 
     print(f"{ID} has been deleted.")
 
-    data = {"Option": 5,"ID":str(ID)}
+    data = {"Option": 5, "ID": str(ID)}
 
     json_data = json.dumps(data)  # creating json object
 
     return json_data
+
+
 def exitOut():
     exit()
