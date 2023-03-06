@@ -49,7 +49,9 @@ def menuDisplay():
         data = sock.recv(1024)
 
         # trying to receive data
-        my_data = data.decode().replace("'","\"")
+        my_data = data.decode()
+        if "'" in my_data:
+            my_data = my_data.replace("'","\"")
         my_list = json.loads(my_data)
         for entry in my_list:
             print(entry)
