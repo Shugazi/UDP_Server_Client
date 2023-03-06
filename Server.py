@@ -17,6 +17,7 @@ serverSock.bind((host, 12345))
 # setting the server to listen for incoming connections
 serverSock.listen()
 
+print("Program started, waiting....\n")
 
 def dataHandler(dataJ):
     option = dataJ["Option"]
