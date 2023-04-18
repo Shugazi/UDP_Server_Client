@@ -2,14 +2,10 @@ import socket
 from menu import *
 
 # Creating the sock object
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Getting the Eros IP
 host = '147.26.231.153'
-
-# connecting to a server on a specifed port
-sock.connect((host, 12345))
-
 
 def menuDisplay():
     print("\n1.) add ")
@@ -22,20 +18,20 @@ def menuDisplay():
 
     if option == 1:
         json_data = add()
-        sock.send(json_data.encode("utf-8"))
+        sock.sendto(json_data.encode("utf-8"), (host, 12345))
 
     elif option == 2:
         json_data = display()
-        sock.send(json_data.encode("utf-8"))
-        data = sock.recv(1024)
+        sock.sendto(json_data.encode("utf-8"), (host, 12345))
+        data, address = sock.recvfrom(1024)
 
         # trying to receive data
         print(data.decode())
 
     elif option == 3:
         json_data = display_score()
-        sock.send(json_data.encode("utf-8"))
-        data = sock.recv(1024)
+        sock.sendto(json_data.encode("utf-8"), (host, 12345))
+        data, address = sock.recvfrom(1024)
 
         # trying to receive data
         my_data = data.decode().replace("'","\"")
@@ -45,8 +41,8 @@ def menuDisplay():
 
     elif option == 4:
         json_data = displayAll()
-        sock.send(json_data.encode("utf-8"))
-        data = sock.recv(1024)
+        sock.sendto(json_data.encode("utf-8"), (host, 12345))
+        data, address = sock.recvfrom(1024)
 
         # trying to receive data
         my_data = data.decode()
@@ -58,9 +54,9 @@ def menuDisplay():
 
     elif option == 5:
         json_data = deleteID()
-        sock.send(json_data.encode("utf-8"))
+        sock.sendto(json_data.encode("utf-8"), (host, 12345))
     elif option == 6:
-        sock.send("exit".encode("utf-8"))
+        sock.sendto("exit".encode("utf-8"), (host, 12345))
         sock.close()
         exit()
 
@@ -70,10 +66,10 @@ while True:
 
 # trying to send data
 msg = "Hi test"
-sock.send(msg.encode())
+sock.sendto(msg.encode(), (host, 12345))
 
 # trying to receive data
-data = sock.recv(1024)
+data, address = sock.recvfrom(1024)
 
 print(data.decode())
 
